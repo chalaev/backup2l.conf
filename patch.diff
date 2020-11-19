@@ -1,0 +1,27 @@
+--- original-backup	2020-04-25 10:16:36.000000000 -0400
++++ patched-backup	2020-04-25 10:18:58.000000000 -0400
+@@ -762,6 +762,7 @@
+     fi
+ 
+     # Remove old differential backups...
++    declare -a removed
+     if [[ $BASE_BID -gt 0 ]]; then
+         ARCH_LIST=(`ls $VOLNAME.*1.list.gz`)
+         LV=0
+@@ -776,6 +777,7 @@
+                     : $[MATCHCNT+=1]
+                     if [[ $MATCHCNT -gt $GENERATIONS ]]; then
+                         purge $BID
++			removed+=($BID)
+                     fi
+                 fi
+             done
+@@ -824,7 +826,7 @@
+     # Run post-backup
+     echo
+     echo "Running post-backup procedure..."
+-    POST_BACKUP
++    POST_BACKUP $NEW_BID ${removed[@]}
+ 
+     echo
+     date

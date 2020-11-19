@@ -1,0 +1,18 @@
+*My [[https://github.com/gkiefer/backup2l][backup2l]] configuration*
+
+* The scope
+1. My backups must be available from everywhere. This is why I use public cloud services (Russian [[https://disk.yandex.com/][Yandex Disk]] or Swiss [[https://www.pcloud.com][pCloud]]) that can be mounted in linux using standard open-source utilities
+2. I assume that cloud system administrators are my enemies working for Evil Corporations and Governments hunting for my precious files; so no unencrypted files are allowed in any cloud.
+3. File names as well as their modification times is part of my private information that I am not going to reveal.
+
+There are two types of files on my computer:
+1. Text files which might be edited several times a day. I use [[https://github.com/chalaev/cloud][this elisp code]] to synchronize these among different hosts.
+2. Everything else which is rarely edited.
+
+This concept might not work for
+- artists who edit their images as often as I edit my text files, and for
+- people use WYSWYG editors like Microsoft Word,  Microsoft Excel, or Microsoft PowerPoint on a daily basis.
+  (Thanks god I am not using this kind of software.)
+
+I archive important files using [[https://github.com/gkiefer/backup2l][backup2l]] patched with [[file:patch.diff][this patch]] using [[file:backup2l.conf][this configuration file]].
+(Hopefully some day my patch [[https://github.com/gkiefer/backup2l/issues/19][will be used in the official backup2l release]].)
